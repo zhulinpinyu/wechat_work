@@ -9,7 +9,7 @@ defmodule WechatWork.Application do
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: WechatWork.Worker.start_link(arg)
-      # {WechatWork.Worker, arg}
+      {WechatWork.TokenWorker, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
