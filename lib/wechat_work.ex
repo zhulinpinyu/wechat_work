@@ -1,18 +1,7 @@
 defmodule WechatWork do
-  @moduledoc """
-  Documentation for WechatWork.
-  """
+  alias WechatWork.TokenServer
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> WechatWork.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def token do
+    TokenServer.token
   end
 end

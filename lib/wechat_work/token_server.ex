@@ -37,7 +37,18 @@ defmodule WechatWork.TokenServer do
   end
 
   defp set_current_state() do
-    %{token: "token", expired_at: Time.add(Time.utc_now, 7200)}
+    with {:ok, %HTTPoison.Response{body: body, status_code: 200}} <- HTTPoison.get(token_url()),
+    {:ok, %{"access_token" => token, "errcode" => 0, "expires_in" => expires_in}} <- Jason.decode(body)
+    do
+      %{token: token, expired_at: Time.add(Time.utc_now, expires_in)}
+    else
+      _ ->
+      %{token: nil, expired_at: nil}
+    end
   end
+
+  defp token_url, do: "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=#{corpid()}&corpsecret=#{corpsecret()}"
+  defp corpid, do: Application.get_env(:wechat_work, :corpid)
+  defp corpsecret, do: Application.get_env(:wechat_work, :corpsecret)
 
 end
