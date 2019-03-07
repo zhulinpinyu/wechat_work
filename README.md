@@ -15,7 +15,17 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/wechat_work](https://hexdocs.pm/wechat_work).
+## usage
 
+```elixir
+def application do
+  [
+    extra_applications: [:logger],
+    mod: {WechatWork.Application, []}
+  ]
+end
+
+WechatWork.push("@all", "测试一下")
+```
+
+be found at [https://hexdocs.pm/wechat_work](https://hexdocs.pm/wechat_work).
