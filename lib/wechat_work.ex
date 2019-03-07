@@ -1,7 +1,7 @@
 defmodule WechatWork do
-  alias WechatWork.TokenServer
+  alias WechatWork.HTTP
 
-  def token do
-    TokenServer.token
+  def push(user_ids, msg) do
+    HTTP.push(user_ids, msg)
   end
 end

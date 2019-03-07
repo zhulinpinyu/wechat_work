@@ -2,7 +2,8 @@ use Mix.Config
 
 config :wechat_work,
   corpid: System.get_env("WECHAT_WORK_CORPID"),
-  corpsecret: System.get_env("WECHAT_WORK_CORPSECRET")
+  corpsecret: System.get_env("WECHAT_WORK_CORPSECRET"),
+  agentid: System.get_env("WECHAT_WORK_AGENTID")
 
 # You can configure your application as:
 #
