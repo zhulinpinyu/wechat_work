@@ -7,7 +7,12 @@ defmodule WechatWork.MixProject do
       version: "0.1.0",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      build_embedded: Mix.env == :prod,
+      description: description(),
+      package: package(),
+      deps: deps(),
+      name: "WeChat Work",
+      source_url: "https://github.com/zhulinpinyu/wechat_work"
     ]
   end
 
@@ -22,6 +27,20 @@ defmodule WechatWork.MixProject do
     [
       {:httpoison, "~> 1.5"},
       {:jason, "~> 1.1"}
+    ]
+  end
+
+  defp description do
+    "WeChat Work for Elixir"
+  end
+
+  defp package do
+    [
+      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
+                license* CHANGELOG* changelog* src),
+      maintainers: ["zhulinpinyu"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/zhulinpinyu/wechat_work"}
     ]
   end
 end
