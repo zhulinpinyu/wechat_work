@@ -25,6 +25,7 @@ defmodule WechatWork.MixProject do
 
   defp deps do
     [
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       {:httpoison, "~> 1.5"},
       {:jason, "~> 1.1"}
     ]
@@ -36,8 +37,7 @@ defmodule WechatWork.MixProject do
 
   defp package do
     [
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog* src),
+      files: ~w(lib .formatter.exs mix.exs README* config),
       maintainers: ["zhulinpinyu"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/zhulinpinyu/wechat_work"}
