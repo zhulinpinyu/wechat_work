@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: elixir:1.9.1-slim
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: mix deps.get
+    - name: Run Tests
+      run: mix test
+      env:
+        WECHAT_WORK_CORPID: ${{sercets.WECHAT_WORK_CORPID}}
+        WECHAT_WORK_CORPSECRET: ${{sercets.WECHAT_WORK_CORPSECRET}}
+        WECHAT_WORK_AGENTID: ${{sercets.WECHAT_WORK_AGENTID}}
