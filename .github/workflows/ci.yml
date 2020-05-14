@@ -1,0 +1,25 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: elixir:1.9.1-slim
+      env:
+        MIX_ENV: test
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        mix local.rebar --force
+        mix local.hex --force
+        mix do deps.get, compile
+    - name: Run Tests
+      run: mix test
+      env:
+        WECHAT_WORK_CORPID: ${{secrets.WECHAT_WORK_CORPID}}
+        WECHAT_WORK_CORPSECRET: ${{secrets.WECHAT_WORK_CORPSECRET}}
+        WECHAT_WORK_AGENTID: ${{secrets.WECHAT_WORK_AGENTID}}
