@@ -3,8 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
     container:
       image: elixir:1.9.1-slim
@@ -12,7 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: mix deps.get
+      run: |
+        mix local.rebar --force
+        mix local.hex --force
+        mix do deps.get, compile
     - name: Run Tests
       run: mix test
       env:

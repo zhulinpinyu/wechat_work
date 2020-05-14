@@ -1,5 +1,7 @@
 # WechatWork
 
+![CI](https://github.com/zhulinpinyu/wechat_work/workflows/CI/badge.svg)
+
 ## Installation
 
 ```elixir
