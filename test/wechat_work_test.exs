@@ -9,4 +9,8 @@ defmodule WechatWorkTest do
   test "push text message success" do
     assert {:ok, _} = WechatWork.push("@all", "就是测试一下")
   end
+
+  test "get userInfo" do
+    assert {:ok, _} = WechatWork.userInfo("MuLiXiang")
+  end
 end

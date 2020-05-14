@@ -5,7 +5,7 @@
 ```elixir
 def deps do
   [
-    {:wechat_work, "~> 0.1.0"}
+    {:wechat_work, "~> 0.2"}
   ]
 end
 ```

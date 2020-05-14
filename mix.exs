@@ -1,10 +1,12 @@
 defmodule WechatWork.MixProject do
   use Mix.Project
 
+  @version "0.2.0"
+
   def project do
     [
       app: :wechat_work,
-      version: "0.1.1",
+      version: @version,
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       build_embedded: Mix.env == :prod,
@@ -25,9 +27,9 @@ defmodule WechatWork.MixProject do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:httpoison, "~> 1.5"},
-      {:jason, "~> 1.1"}
+      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      {:httpoison, "~> 1.6"},
+      {:jason, "~> 1.2"}
     ]
   end
 
