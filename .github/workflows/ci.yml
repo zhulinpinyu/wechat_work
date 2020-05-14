@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  push:
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
@@ -19,6 +16,6 @@ jobs:
     - name: Run Tests
       run: mix test
       env:
-        WECHAT_WORK_CORPID: ${{sercets.WECHAT_WORK_CORPID}}
-        WECHAT_WORK_CORPSECRET: ${{sercets.WECHAT_WORK_CORPSECRET}}
-        WECHAT_WORK_AGENTID: ${{sercets.WECHAT_WORK_AGENTID}}
+        WECHAT_WORK_CORPID: ${{secrets.WECHAT_WORK_CORPID}}
+        WECHAT_WORK_CORPSECRET: ${{secrets.WECHAT_WORK_CORPSECRET}}
+        WECHAT_WORK_AGENTID: ${{secrets.WECHAT_WORK_AGENTID}}
