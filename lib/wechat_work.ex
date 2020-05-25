@@ -5,7 +5,11 @@ defmodule WechatWork do
     Message.push(token(), user_ids, msg)
   end
 
-  def userInfo(userid) do
+  def userInfo(code) do
+    User.getUserInfo(token(), code)
+  end
+
+  def user(userid) do
     User.get(token(), userid)
   end
 
