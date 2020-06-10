@@ -11,6 +11,6 @@ defmodule WechatWorkTest do
   end
 
   test "get userInfo" do
-    assert {:ok, _} = WechatWork.userInfo("MuLiXiang")
+    assert {:ok, _} = WechatWork.user("MuLiXiang")
   end
 end

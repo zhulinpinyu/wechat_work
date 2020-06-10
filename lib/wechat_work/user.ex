@@ -5,8 +5,11 @@ defmodule WechatWork.User do
     HTTP.get(api_pathname(), params: %{access_token: token, userid: userid})
   end
 
-  def getUserInfo(token, code) do
-    HTTP.get(api_pathname("getuserinfo"), params: %{access_token: token, code: code})
+  def auth(token, code) do
+    with {:ok, %{"UserId" => userid}} <- HTTP.get(api_pathname("getuserinfo"), params: %{access_token: token, code: code})
+    do
+      get(token, userid)
+    end
   end
 
   defp api_pathname(action \\ "get"), do: "/cgi-bin/user/#{action}"
